@@ -1,0 +1,33 @@
+.main-container{
+	padding: 20px 20px;
+}
+
+.main-dest-search-icon{
+	position: absolute;
+	z-index: 999;
+	font-size: 25px;
+	top: 8px;
+    right: 5px;
+    color: #0058ff;
+}
+
+.ques-bar{
+	margin-top:5px;
+	font-weight: bold;
+}
+
+.input-main-dest{
+	position: relative;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	margin-top:10px;
+	input{
+		padding:5px;
+		width: 100%;
+		border-radius: 5px;
+		box-shadow: 5px 5px 5px lightgray;
+		border: 0;
+		height: 40px;
+	}
+}
+

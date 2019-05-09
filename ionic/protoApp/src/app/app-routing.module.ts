@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { MainPage } from './main/main.page';
+import { DestComponent } from './dest/dest.page';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'main', component: MainPage },
+  { path: 'dest', component: DestComponent }
 ];
 
 @NgModule({
