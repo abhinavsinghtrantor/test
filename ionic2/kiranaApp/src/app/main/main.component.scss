@@ -1,0 +1,45 @@
+.top-container{
+	height: 30%;
+	width: 100%;
+
+	.card{
+		height: 90%;
+	}
+
+	.card-content{
+		text-align: center;
+	}
+	.card-title{
+		text-align: center;
+	}
+}
+.bottom-container{
+	height: 70%;
+	width: 100%;
+
+	.tab-segment{
+		border: 1px solid #d8d8d8;
+
+		.first-segment{
+			border-right: 1px solid #d8d8d8;
+		}
+	}
+	ion-grid{
+		height: 75%;
+		margin: 10px;
+	}
+	ion-row {
+		height: 33%;
+		ion-col{
+			display: flex!important;
+			align-content: center;
+			align-items: center;
+			border: 1px solid #d8d8d8;
+		}
+
+		ion-col > div{
+			text-align: center;
+			width: 100%;
+		}
+	}
+}

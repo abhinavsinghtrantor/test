@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Shop Online</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="bannerImg"></div>
+	<ion-list *ngFor="let subCategory of category.subCategories" >
+		<ion-item>
+    		<ion-label>
+    			<div class="sub-name">{{subCategory.name}}</div>
+    			<div class="sub-offer">{{subCategory.offer}}</div>
+    		</ion-label>
+  		</ion-item>
+	</ion-list>
+</ion-content>

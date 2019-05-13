@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="top-container">
+      <ion-card class="card">
+        <ion-card-header>
+          <ion-card-subtitle>The Bank</ion-card-subtitle>
+          <ion-card-title class="card-title">Savings A/C 123456789</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="card-content">
+          Check Balance
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="bottom-container">
+       <ion-segment class="tab-segment" (ionChange)="segmentChanged($event)" value="BANK">
+        <ion-segment-button value="BANK" class="first-segment">
+          <ion-label>BANK</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="SHOP">
+          <ion-label>SHOP</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-grid *ngIf="isBankVisible" >
+            <ion-row *ngFor = "let itemRow of bItems">
+                <ion-col>
+                  <div>
+                    {{itemRow[0]}}
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                   {{itemRow[1]}}
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                    {{itemRow[2]}}
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+            <ion-grid *ngIf="isShopVisible" >
+            <ion-row *ngFor = "let itemRow of sItems">
+                <ion-col>
+                  <div>
+                    {{itemRow[0]}}
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                   {{itemRow[1]}}
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div>
+                    {{itemRow[2]}}
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+    </div>
+
+    
+
+</ion-content>
