@@ -5,14 +5,14 @@
 <div class="container-fluid">
 	<h5>Select you payment</h5>
 	<div class="payment-container">
-		<div class="card">
+		<div class="card" (click) = "selectPayMode('online')">
 			<div class="card-body">
 				<div class="card-text">
 					Online Payment
 				</div>
 			</div>
 		</div>
-		<div class="card">
+		<div class="card" (click) = "selectPayMode('cod')">
 			<div class="card-body">
 				<div class="card-text">
 					Cash on Delivery

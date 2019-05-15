@@ -66,5 +66,12 @@ export class ApiServiceService {
     var products = lCart.products;
     return products.length;
   }
+
+  completeOrder(payMode){
+    let cart = JSON.parse(sessionStorage["cart"]);
+    let addressId = sessionStorage["addressId"];
+    let obj = {cart : cart, addressId : addressId};
+    return this.http.post("http://localhost:3000/completeOrder", obj);
+  }
   
 }
