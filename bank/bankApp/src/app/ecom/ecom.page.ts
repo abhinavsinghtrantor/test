@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-ecom',
@@ -9,7 +10,7 @@ export class EcomPage implements OnInit {
 
   category : any = {};
 
-  constructor() { }
+  constructor(private api : ApiServiceService) { }
 
   ngOnInit() {
   	let subCategories = [];
@@ -18,7 +19,10 @@ export class EcomPage implements OnInit {
   	subCategories[2] = {name : "Cameras", imgUrl : "", offer: "30% Off"};
   	subCategories[3] = {name : "Headphones", imgUrl : "", offer: "30% Off"};
 
-  	this.category = {"name" : "Electronics", bannerUrl : "", subCategories : subCategories};
+  	
+    this.api.getSubCategories("electronics").subscribe((data: any) => {
+      this.category = {"name" : data.name, bannerUrl : data.bannerUrl, subCategories : data.subCategories};
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-ecom-product-detail',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EcomProductDetailComponent implements OnInit {
 
-  constructor() { }
+  productDetails : any = {};
+  constructor(private api : ApiServiceService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.api.getCartCount());
+  	this.api.getProductDetail("mobile-phones", "test").subscribe((data: any) => {
+  		this.productDetails = data.productDetails;
+  	});
+  }
+
+  buyProduct(){
+    this.api.saveCart(this.productDetails);
+  }
 
 }

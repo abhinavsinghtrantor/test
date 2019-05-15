@@ -13,15 +13,18 @@
 
 .bottom-container{
 	border-bottom: 10px solid #d8d8d8;
-
+	h4{
+		padding: 10px;
+	}
 	.row{
 		margin: 0px;
 		.col{
 			border: 1px solid #d8d8d8;
-			height: 50px;
+			height: 80px;
 			display: flex;
 			align-content: center;
 			align-items: center;
+			justify-content: center;
 		}
 	}
 }

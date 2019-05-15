@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
 
 @Component({
   selector: 'app-ecom-product',
@@ -9,20 +10,11 @@ export class EcomProductComponent implements OnInit {
 
   products : any = {}
 
-  constructor() { }
+  constructor(private api : ApiServiceService) { }
 
   ngOnInit() {
-  	let productList = [];
-  	productList[0] = {name : "1IPhone X", price : "Rs. 500", dPrice : "Rs. 400", offer : "30% Off", 
-  						imgUrl : ""};
-  	productList[1] = {name : "2IPhone X", price : "Rs. 500", dPrice : "Rs. 400", offer : "30% Off", 
-  						imgUrl : ""};
-  	productList[2] = {name : "3IPhone X", price : "Rs. 500", dPrice : "Rs. 400", offer : "30% Off", 
-  						imgUrl : ""};
-  	productList[3] = {name : "4IPhone X", price : "Rs. 500", dPrice : "Rs. 400", offer : "30% Off", 
-  						imgUrl : ""};
-
-  	this.products = {catName : "Electronics", productList : productList}
+    let productList = [];
+    this.api.getProducts("mobile-phones").subscribe((data: any) => {productList = data.data.productList;
+    this.products = {catName : "Electronics", productList : productList}});
   }
-
 }

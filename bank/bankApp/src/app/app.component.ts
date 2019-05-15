@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bankApp';
+
+  constructor(){
+  	if(sessionStorage["cart"] == undefined){
+  		sessionStorage["cart"] = JSON.stringify({tPrice : 0, products : []});
+  	}
+  }
 }

@@ -1,3 +1,6 @@
+<div class="header">
+  <div class="heading">Test App</div>
+</div>
 <div class="container-fluid">
   <div class="top-container">
     <div class="card" style="width: 100%;">
@@ -10,29 +13,40 @@
 </div>
 
   <div class="bottom-container">
-    <div class="row">
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-    </div>
-    <div class="row">
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-    </div>
-    <div class="row">
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-    </div>
-    <div class="row">
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-      <div class="col">dssd</div>
-    </div>
+    <div class="row" *ngFor="let items of bItems">
+      <div class="col">{{items[0]}}</div>
+      <div class="col">{{items[1]}}</div>
+      <div class="col">{{items[2]}}</div>
+      <div class="col">{{items[3]}}</div>
+  </div>
+</div>
+
+<div class="bottom-container">
+    <h4>Top Offers</h4>
+    <div class="row" *ngFor="let items of bItems">
+      <div class="col">{{items[0]}}</div>
+      <div class="col">{{items[1]}}</div>
+      <div class="col">{{items[2]}}</div>
+      <div class="col">{{items[3]}}</div>
+  </div>
+</div>
+
+<div class="bottom-container">
+    <h4>Shop Online</h4>
+    <div class="row" *ngFor="let items of bItems">
+      <div class="col">{{items[0]}}</div>
+      <div class="col">{{items[1]}}</div>
+      <div class="col">{{items[2]}}</div>
+      <div class="col">{{items[3]}}</div>
+  </div>
+</div>
+
+<div class="bottom-container">
+    <h4>Nearby Offers</h4>
+    <div class="row" *ngFor="let items of bItems">
+      <div class="col">{{items[0]}}</div>
+      <div class="col">{{items[1]}}</div>
+      <div class="col">{{items[2]}}</div>
+      <div class="col">{{items[3]}}</div>
   </div>
 </div>

@@ -15,13 +15,10 @@ export class MainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	this.bItems[0] = ["item1", "item2", "item3"];
-  	this.bItems[1] = ["item4", "item5", "item6"];
-  	this.bItems[2] = ["item7", "item8", "item9"];
-
-  	this.sItems[0] = ["sitem1", "sitem2", "sitem3"];
-  	this.sItems[1] = ["sitem4", "sitem5", "sitem6"];
-  	this.sItems[2] = ["sitem7", "sitem8", "sitem9"];
+  	this.bItems[0] = ["item1", "item2", "item3", "item3"];
+  	this.bItems[1] = ["item4", "item5", "item6", "item3"];
+  	this.bItems[2] = ["item7", "item8", "item9", "item3"];
+    this.bItems[3] = ["item7", "item8", "item9", "item3"];
   }
 
   segmentChanged(ev: any) {
