@@ -1,8 +1,32 @@
 <ion-header>
-	
+	<div class="input-container">
+        
+        <div class="pickup-input">
+            <div class="left">Pickup</div>
+            <div class="input-main-dest right">
+                <input type="text" (keyup) = "autoCompleteLocation(1)" [(ngModel)] = "text1"/>
+            </div>
+        </div>
+        <div class="drop-input">
+            <div class="left">Drop</div>
+            <div class="input-main-dest right">
+                <input type="text" (keyup) = "autoCompleteLocation(2)" [(ngModel)] = "text2"/>
+             </div>
+        </div>
+    </div>
 
  </ion-header>
 
 <ion-content>
+        <ion-list>
+            <ion-item>
+                    <ion-icon name="pin"></ion-icon><ion-label>Set on Map</ion-label>
+            </ion-item>
+            <ion-item *ngFor="let loc of list">
+                    <ion-icon name="pin"></ion-icon><ion-label (click) = "selectLocation(loc.locationId, loc.label)">{{loc.label}}</ion-label>
+            </ion-item>
 
+        </ion-list>
+
+        
 </ion-content>
