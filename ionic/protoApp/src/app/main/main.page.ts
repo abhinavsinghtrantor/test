@@ -3,6 +3,7 @@ declare var H : any;
 
 import { Component } from '@angular/core';
 import {ElementRef, ViewChild} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -13,12 +14,20 @@ export class MainPage {
 	@ViewChild("map")
     public mapElement: ElementRef;
 
-	constructor(private _elementRef : ElementRef){
-		
-		
+  isDrag: string;
+
+
+	constructor(private _elementRef : ElementRef, private router: Router){
+
+
 	}
 
-	
+  ngOnInit(){
+    this.isDrag = "n";
+  }
 
-	
+  input(){
+    this.router.navigate(['/dest']);
+  }
+
 }

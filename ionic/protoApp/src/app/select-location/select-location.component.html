@@ -1,18 +1,13 @@
 <ion-header>
-<div class="input-container">
-        
-        <div class="location-input drop-input">
-            <div class="left">Pickup</div>
-            <div class="input-main-dest right">
-                <input type="text" />
-            </div>
-        </div>
-    </div>
-</ion-header>
-    <ion-content>
-            <ion-list>
-                <ion-item>
-                        <ion-icon name="pin"></ion-icon><ion-label>Set on Map</ion-label>
-                </ion-item>
-            </ion-list>
-    </ion-content>
+
+
+ </ion-header>
+
+<ion-content>
+
+
+  <app-map [isDrag]="isDrag"></app-map>
+
+<div class="bottom" (click)="doneButton()">DONE</div>
+
+</ion-content>

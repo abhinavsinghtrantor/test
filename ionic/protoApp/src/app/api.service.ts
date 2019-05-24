@@ -19,4 +19,17 @@ export class ApiService {
 
     return this.http.get(url);
   }
+
+  getReverseGeocode(coords){
+    console.log(coords);
+    let lat = coords.lat;
+    let long = coords.lng;
+    let prox = lat+'%2C'+long;
+    let mode = 'retrieveAddresses';
+    let maxresults = '1';
+    let gen = '9';
+    let url = "https://reverse.geocoder.api.here.com/6.2/reversegeocode.json?prox="+prox+"&mode=retrieveAddresses&maxresults=1&gen=9&app_id=wfqO2AYhfdblte3PW3LZ&app_code=YAg7VwUeOmV1idPCIZUlIw";
+
+    return this.http.get(url);
+  }
 }
