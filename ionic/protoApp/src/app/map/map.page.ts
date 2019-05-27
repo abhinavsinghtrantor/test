@@ -36,8 +36,9 @@ export class MapComponent {
   }
 
 	ngOnInit(){
+ 
 
-    this.isDraggable = this.isDrag;
+  this.isDraggable = this.isDrag;
 
 		this.svgMarkup = '<svg width="15" height="15" ' +
   'xmlns="http://www.w3.org/2000/svg">' +
@@ -46,7 +47,7 @@ export class MapComponent {
 	}
 
   doneButton(){
-    alert('sdfsdf');
+    //alert('sdfsdf');
   }
 
 	ngAfterViewInit() {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,41 @@ export class ApiService {
 
     return this.http.get(url);
   }
+
+  getEta(){
+  let headers = new HttpHeaders(
+          { "Content-Type": "application/json" }
+        );
+    let coords = sessionStorage['pickupCoords'];
+    return this.http.post("http://localhost:3000/getRides", coords, {headers : headers})
+  }
+
+  getRideLocation(){
+
+    let cabCoords = {"lat": 30.72765595299834, "lng":76.78081620635987};
+    return cabCoords;
+  }
+
+  bookRide(){
+    sessionStorage['isRideBook'] = true;
+  }
+
+  getRideDetails(reqId){
+     let headers = new HttpHeaders(
+          { "Content-Type": "application/json" }
+        );
+    let obj = JSON.parse(sessionStorage['pickupCoords']);
+    obj['reqId'] = reqId;
+    return this.http.post("http://localhost:3000/getRideDetails", obj, {headers : headers}).toPromise();
+  }
+
+  bookRide(reqId){
+     let headers = new HttpHeaders(
+          { "Content-Type": "application/json" }
+        );
+    let obj = {reqId : reqId};
+    return this.http.post("http://localhost:3000/bookRide", obj, {headers : headers}).toPromise();
+  }
+
+
 }

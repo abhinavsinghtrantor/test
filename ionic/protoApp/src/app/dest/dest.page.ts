@@ -7,7 +7,7 @@ import { ApiService } from '../api.service';
 import { DataService } from '../data.service';
 import {NgForm} from '@angular/forms';
 import { callLifecycleHooksChildrenFirst } from '@angular/core/src/view/provider';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dest',
@@ -24,11 +24,19 @@ export class DestComponent {
   pickCoords : any;
   dropCoords : any;
 
-	constructor(private api: ApiService, private router: Router, private dataService: DataService){ }
+	constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private router: Router, private dataService: DataService){ 
+     this.router.events.subscribe((data) => {
+      this.text1 = this.dataService.getPickupLabel();
+      this.text2 = this.dataService.getDropLabel();
+     })}
 
   ngOnInit(){
-    this.text1 = this.dataService.getPickupLabel();
-    this.text2 = this.dataService.getDropLabel();
+    
+  }
+
+  ngOnChanges(){
+  
+    
   }
 
   autoCompleteLocation(type){
@@ -55,12 +63,18 @@ selectLocation(locationId, label){
     let coords = data['response']['view'][0]['result'][0]['location']['displayPosition'];
     if(this.isPickup){
       this.pickCoords = coords;
-      this.dataService.savePickupLocation(coords);
+      let lat = this.pickCoords.latitude;
+      let lng = this.pickCoords.longitude;
+      let coords1 = {"lat" : lat, "lng" : lng};
+      this.dataService.savePickupLocation(coords1);
       this.text1 = label;
       this.dataService.savePickupLocationLabel(label);
     }else if(this.isDrop){
       this.dropCoords = coords;
-      this.dataService.saveDropLocation(coords);
+      let lat = this.dropCoords.latitude;
+      let lng = this.dropCoords.longitude;
+      let coords1 = {"lat" : lat, "lng" : lng};
+      this.dataService.saveDropLocation(coords1);
       this.text2 = label;
       this.dataService.saveDropLocationLabel(label);
     }
@@ -70,6 +84,8 @@ selectLocation(locationId, label){
 }
 
 focus(type){
+  this.isPickup = false;
+  this.isDrop = false;
   if(type == 1){
     this.isPickup = true;
   }else{
@@ -87,7 +103,7 @@ setOnMap(){
 }
 
 doneButton(){
-  alert('sdfsdf');
+  this.router.navigate(['/selectcar']);
 }
 
 }

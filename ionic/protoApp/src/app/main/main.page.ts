@@ -24,6 +24,10 @@ export class MainPage {
 
   ngOnInit(){
     this.isDrag = "n";
+     delete sessionStorage['pickupCoords'];
+  delete sessionStorage['dropCoords'];
+  delete sessionStorage['pickup'];
+  delete sessionStorage['drop'];
   }
 
   input(){

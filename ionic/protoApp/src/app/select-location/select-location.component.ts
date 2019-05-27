@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-select-location',
@@ -9,13 +10,16 @@ import { Router } from '@angular/router';
 export class SelectLocationComponent implements OnInit {
 
   isDrag: string;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private api: ApiService) { }
 
   ngOnInit() {
     this.isDrag = "y";
   }
 
+  
+
 doneButton(){
+	
   this.router.navigate(['/dest']);
 }
 
