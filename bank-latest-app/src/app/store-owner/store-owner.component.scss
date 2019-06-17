@@ -6,6 +6,11 @@
         float: left;
         width: 10%;
         padding-left: 10px;
+        clr-icon{
+            width: 25px;
+            height: 25px;
+            color: #000000;
+        }
     }
     .title{
         float: left;
@@ -17,6 +22,11 @@
         width: 10%;
         text-align: right;
         padding-right: 10px;
+        clr-icon{
+            width: 25px;
+            height: 25px;
+            color: #000000;
+        }
     }
 }
 
