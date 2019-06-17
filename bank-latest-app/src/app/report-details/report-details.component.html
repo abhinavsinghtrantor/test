@@ -1,3 +1,16 @@
-<p>
-  report-details works!
-</p>
+<div class="report-container">
+  <h4>{{reportTitle}}</h4>
+  <clr-datagrid>
+    <clr-dg-column>ID</clr-dg-column>
+    <clr-dg-column>Date</clr-dg-column>
+    <clr-dg-column>Value</clr-dg-column>
+
+    <clr-dg-row *ngFor="let user of users">
+        <clr-dg-cell>{{user.id}}</clr-dg-cell>
+        <clr-dg-cell>{{user.name}}</clr-dg-cell>
+        <clr-dg-cell>{{user.value}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+</clr-datagrid>
+</div>

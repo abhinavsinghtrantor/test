@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportDetailsComponent implements OnInit {
 
+  users: any;
+  reportTitle : string;
   constructor() { }
 
   ngOnInit() {
+    this.reportTitle = "Report Title";
+    this.users = [{id: 1, name : "A", value: 150}]
   }
 
 }
